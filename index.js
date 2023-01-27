@@ -28,6 +28,14 @@ app.post("/addscore", async (req, res) => {
   }
 });
 
+app.get("/usedetail", async (req, res) => {
+  try {
+    let users = await PlayScoreModel.find();
+    res.send({ message: "users data", data: users });
+  } catch (err) {
+    console.log(err);
+  }
+});
 app.listen(port, async () => {
   try {
     await connection;
