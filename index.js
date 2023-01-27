@@ -5,10 +5,13 @@ var randomWords = require("random-words");
 const { connection } = require("./config/db");
 //model
 const { PlayScoreModel } = require("./model/play.model");
+//cors
+const cors = require("cors");
 const port = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/playzone", (req, res) => {
   let word = randomWords();
